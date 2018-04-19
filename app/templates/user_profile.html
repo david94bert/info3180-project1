@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+  {% include 'flash_messages.html' %}
+  
+  <div class= "gridview">
+      
+          {% for image_name in image_names %}
+              {% if user.photo_name == image_name %}
+                    <li>
+                        <div>
+                            <div><img src="{{url_for('static', filename='uploads/'+image_name)}}" /></div>
+                            <div>
+                                <p>{{ user.first_name }} {{ user.last_name }}</p>
+                                <p>{{ user.email }}</p>
+                                <p>{{ user.location }}</p>
+                                <p>joined on {{ user.date_created.strftime("%B, %d, %Y") }}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p>About me</p>
+                            <p>{{ user.biography }}</p>
+                        </div>
+                        <div><a class="button">Send Message</a></div>
+                        <div><a class="button">Follow</a></div>
+                    </li>
+                {% endif %}
+          {% endfor %}
+        
+            
+  </div>
+  
+{% endblock %}
