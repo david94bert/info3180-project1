@@ -75,19 +75,11 @@ def user_profile(filename):
     image_names= get_uploaded_images()
     return render_template('user_profile.html', user=user, image_names=image_names)
     
-@app.route("/logout")
-@login_required
-def logout():
-    # Logout the user and end the session
-    logout_user()
-    flash('You have been logged out.', 'danger')
-    return redirect(url_for('home'))    
+  
 
 # user_loader callback. This callback is used to reload the user object from
 # the user ID stored in the session
-@login_manager.user_loader
-def load_user(id):
-    return UserProfile.query.get(int(id))
+
 
 ###
 # The functions below should be applicable to all Flask apps.
@@ -120,4 +112,3 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="8080")
-    
