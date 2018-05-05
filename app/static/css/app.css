@@ -13,4 +13,19 @@ body {
 }
 #spacediv{
     margin: 15px;
+}body {
+    padding-top: 5rem;
+}
+
+.tocenter {
+    text-align: center;
+}
+
+.userimg {
+    width: 150px;
+    height: 150px;
+
+}
+#spacediv{
+    margin: 15px;
 }

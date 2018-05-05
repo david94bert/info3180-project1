@@ -21,7 +21,7 @@
     {% endfor %}
     </ul>
     
-    {{ form.gender.label }} <br /><span style="color:red"> * </span> Please enter your last name <br /> {{ form.gender }}<br /> <br />
+    {{ form.gender.label }} <br /><span style="color:red"> * </span> Please choose gender <br /> {{ form.gender }}<br /> <br />
     <ul>
     {% for error in form.gender.errors %}
       <li style="color:red;">{{ error }}</li>
@@ -35,7 +35,7 @@
     {% endfor %}
     </ul>
     
-    {{ form.location.label }} <br /> <span style="color:red"> * </span>Pleae enter subject <br />  {{ form.location }}<br /> <br />
+    {{ form.location.label }} <br /> <span style="color:red"> * </span>Please enter subject <br />  {{ form.location }}<br /> <br />
     <ul>
     {% for error in form.location.errors %}
       <li style="color:red;">{{ error }}</li>

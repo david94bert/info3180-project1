@@ -12,6 +12,7 @@ from models import UserProfile
 from werkzeug.utils import secure_filename
 import os
 import datetime
+import random 
 
 
 ###
@@ -34,6 +35,7 @@ def about():
 def profile():
     form = LoginForm()
     if request.method == "POST" and form.validate_on_submit():
+        id = random.randint(1,1000)
         now = datetime.datetime.now()
         firstname = form.firstname.data
         lastname = form.lastname.data
@@ -43,7 +45,7 @@ def profile():
         biography = form.biography.data
         f = form.upload.data
         filename = secure_filename(f.filename)
-        user = UserProfile(first_name=firstname, last_name=lastname, gender=gender, email=email, location=location, biography=biography, photo_name=filename, date_created=now)
+        user = UserProfile(id, firstname=firstname, lastname=lastname, gender=gender, email=email, location=location, biography=biography, photo_name=filename, date_created=now)
         db.session.add(user)
         db.session.commit()
         f.save(os.path.join(filefolder, filename))
